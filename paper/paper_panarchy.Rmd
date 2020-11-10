@@ -1,0 +1,78 @@
+---
+title: "Panarchy: ripples of a boundary concept"
+author: |
+  | \small \textbf{Juan C. Rocha}
+  | \small Stockholm Resilience Centre
+  | \small Stockholm University
+  | \small \texttt{\href{mailto:juan.rocha@su.se}{\nolinkurl{juan.rocha@su.se}}}
+
+
+abstract: |
+  Ecosystems around the world are at riks of critical transitions due to increasing anthropogenic preasures and climate change [@Bolt:2018ib; @Rocha:2018gn; @Rockstrom:2009p4681; @Steffen:2018ku]. However, it is not clear where this risks are higher or where ecosystems are more vulnerable. Here I measure resilience of primary production proxies for marine and terrestrial ecosystems globally.
+
+bibliography: references.bib
+csl: nature.csl
+output:
+  pdf_document:
+    dev: pdf
+    keep_tex: no
+    toc: no
+    latex_engine: xelatex
+  word_document:
+    toc: no
+citecolor: blue
+documentclass: article
+font: Arial
+fontsize: 10pt
+keywords:
+- cooperation
+- thresholds
+- risk
+- uncertainty
+- regime shifts
+linkcolor: blue
+urlcolor: blue
+header-includes:
+- \usepackage{dcolumn, rotating, longtable, lineno, float, fontspec, array, tabularx}
+- \setmainfont{Arial}
+- \linenumbers
+- \renewcommand{\abstractname}{}
+- \graphicspath{{figures/}}
+- \usepackage[margin=2.5cm]{geometry}
+---
+
+# Outline
+Intro
+
+
+
+# Introduction
+(800w)
+
+
+# Methods
+(800w)
+
+# Results
+(1000w)
+
+
+# Discussion
+(1000w)
+- Prospects of applying ML
+- False negatives and false positives.
+- Signals of critical transtions that are strong enought to impact primary productivity. The data does not allow to detect higher resolution changes in the ecological hierarchy such as regime shifts in populations or communities unless they impact aggregated primary productivy as observed from remote sensing.
+- Many regime shift types are not detected: e.g. mangroves, salt marshes, mountain glaciers, etc. Higher resolution data might help, but
+- updates: ecological resilience observatory.
+
+# Conclusion
+(400w)
+
+
+# References {-}
+\bibliography{references}
+
+
+\pagebreak
+
+# Supplementary Material
