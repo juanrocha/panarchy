@@ -3,8 +3,13 @@
 .RData
 .Ruserdata
 .DS_Store
+.Rapp.history
 WoS_panarchy/
 *.csv
 *.png
 *.bib
 *.pdf
+*.tex
+*.log
+*.RData
+*.jpg
