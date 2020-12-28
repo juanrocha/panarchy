@@ -13,3 +13,5 @@ WoS_panarchy/
 *.log
 *.RData
 *.jpg
+*.zip
+paper/submission_files/

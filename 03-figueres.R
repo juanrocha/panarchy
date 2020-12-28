@@ -4,6 +4,7 @@ library(tm)
 library (topicmodels)
 library(lda)
 library(patchwork)
+library(png)
 
 
 load("data/models_gibbs.RData")
@@ -42,10 +43,13 @@ g1 <- df_stats %>%
     add_column(perplexity = as.numeric(perp[c(1,2,4,3)])) %>% #minimize perplexity
     pivot_longer(cols = 2:4, names_to = "measure", values_to = "value") %>%
     ggplot(aes(model, value)) + 
-    geom_col() + facet_wrap(.~measure, scales = "free") +
+    geom_col() + 
+    # scale_y_continuous(labels = scales::label_scientific) +
+    facet_wrap(.~measure, scales = "free_y") +
     labs(x = "Algorithm", y = "Value", tag = "A") +
-    theme_light(base_size = 6) 
-
+    theme_light(base_size = 8) + 
+    theme(axis.text.x = element_text(size = 5))
+g1
 # ggsave(filename = "figures/fig1_algorithm_selection.png",
 #        device = "png", width = 5, height = 2)
 
@@ -58,14 +62,15 @@ g2 <- df_topic_number %>%
     # filter(measure != "alpha") %>%
     ggplot(aes(as.factor(topic_number), value)) +
     geom_col() + 
+    # scale_y_continuous(labels = scales::label_scientific) +
     labs(x = "Number of topics", y = "Value", tag = "B") +
     facet_wrap(.~measure, scales = "free", ncol = 4, nrow = 1) +
-    theme_light(base_size = 6)
+    theme_light(base_size = 8)
 
 g1/g2
 
-ggsave(filename = "paper/figures/fig3_topicnumber.png",
-       device = "png", width = 5, height = 4)
+ggsave(filename = "paper/figures/fig2_topicnumber.png",
+       device = "png", width = 5, height = 4, dpi = 400)
 
 
 #### heatmaps topics ####
@@ -98,7 +103,7 @@ g_25 <- df_topics25 %>%
     theme(axis.text.x = element_text(size = 5))
 
 
-
+g_25
 
 ggsave("fig3_topics25_time.png", device = "png", width = unit(5,"in"), height = unit(5,"in"))
 
@@ -162,7 +167,7 @@ g_prop <- df_documents %>%
     geom_line(aes(color = as.factor(topic)), show.legend = FALSE, size = 0.25) +
     geom_hline(yintercept = 0.04, color = "gray50", size = 0.5, linetype = 2 ) +
     labs(y = "Proportion of papers", x = "Year", tag = "B") +
-    # facet_wrap(.~topic, ncol = 5) +
+    facet_wrap(.~topic, ncol = 5) +
     theme_light(base_size = 6) 
 
 ## alternative with stacked lines
@@ -183,7 +188,8 @@ g_stack <-  df_documents %>%
     mutate(proportion = gamma_yr_tp / total,
            topic = as.factor(topic)) %>%
     ggplot(aes(x = year, y = proportion, group = topic)) +
-    geom_col(aes(fill = topic), position = "stack", show.legend = FALSE) +
+    geom_area(aes(fill = topic, color = topic), 
+              position = "stack", show.legend = FALSE, alpha = 0.5, size = 0.25) +
     labs(y = "Relative proportion of topics", x = "Year", tag = "C") +
     theme_classic(base_size = 6) 
 
@@ -242,7 +248,30 @@ qual_summary %>%
     scale_y_continuous(labels = scales::percent) +
     scale_x_reordered() +
     coord_flip() + labs(x = "", y = "") +
-    theme_light(base_size = 6)
+    theme_light(base_size = 8)
 
-ggsave("fig5_qual_results.png", device = "png", width = unit(5,"in"), height = unit(2,"in"))
+ggsave("paper/figures/fig4_qual_results.png", device = "png", width = unit(5,"in"), height = unit(2.5,"in"))
 
+#### Fig 1 ####
+
+p1 <- ggplot(data = data_frame(x = 0, y= 0), aes(x,y)) + geom_blank() +
+    labs(tag = "A") +
+    theme_void() +
+    annotation_custom(
+        grob = grid::rasterGrob( image = readPNG(
+            "paper/figures/adaptive_cycle.png"), interpolate = TRUE),
+        xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf
+    )
+p2 <- ggplot(data = data_frame(x = 0, y= 0), aes(x,y)) + geom_blank() +
+    labs(tag = "B") +
+    theme_void() +
+    annotation_custom(
+        grob = grid::rasterGrob( image = readPNG(
+            "paper/figures/panarchy.png"), interpolate = TRUE),
+        xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf
+    )
+
+p1 | p2 + plot_layout(widths = 2.5, heights = 2.5)
+
+ggsave(filename = "paper/figures/fig1.png",
+       plot = last_plot(), width = 6, height = 2.5, device = "png", dpi = 400)
