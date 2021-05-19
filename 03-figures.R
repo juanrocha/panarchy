@@ -195,18 +195,32 @@ g_stack <-  df_documents %>%
 
 # + 
 #     theme(axis.text.x = element_text(size = 4))
+sm2 <- df_documents %>% 
+    left_join(
+        dat %>% 
+            select(abstract, title, year) %>%
+            filter(!is.na(abstract)) %>%
+            unique(),
+        by = c("document" = "title") ) %>%
+    mutate(year = as.numeric(year)) %>% 
+    filter(year > 2000, year <2021) %>%
+    ggplot(aes(year, gamma) )+
+    geom_jitter(
+        aes(color = as.factor(topic), fill = as.factor(topic), alpha = gamma),
+        size = 1, show.legend = FALSE) +
+    geom_smooth(method = "loess") +
+    scale_alpha_continuous(range = c(0.1,1)) +
+    facet_wrap(.~topic, ncol = 5) +
+    labs(y = "Relative proportion of topics", x = "Year") +
+    #theme_classic(base_size = 6) 
+    theme_light(base_size = 6) +
+    theme(axis.text.x = element_text(size = 4))
 
-    # ggplot(aes(year, gamma) )+
-    # geom_jitter(
-    #     aes(color = as.factor(topic), fill = as.factor(topic), alpha = gamma),
-    #     size = 1, show.legend = FALSE) +
-    # geom_smooth(method = "loess") +
-    # scale_alpha_continuous(range = c(0.1,1)) +
-    # facet_wrap(.~topic, ncol = 5) +
-    # #labs(tag = "B") +
-    # theme_light(base_size = 6) + 
-    # theme(axis.text.x = element_text(size = 4))
-
+ggsave(
+    plot = sm2,
+    filename = "sm2.png", path = "paper/figures",
+    device = "png", width = unit(5,"in"), height = unit(5,"in"),
+    dpi = 500)
 
 (g_tl | g_prop | g_stack) / g_25 + plot_layout(heights = unit(c(1.5,4), "in"))
 
@@ -238,6 +252,7 @@ qual_summary <- qual %>%
     add_column(var_type = c(
         rep("panarchy feature", 2), rep("paper type", 5), 
         rep("panarchy feature", 4),rep("paper type", 2))) %>% 
+    mutate(feature = str_replace_all(feature, "idenfity phases", "identify phases")) %>% 
     mutate(feature = as_factor(feature)) %>%
     mutate(feature = fct_reorder(.f = feature, .x = proportion, sort))
 
@@ -248,7 +263,7 @@ qual_summary %>%
     scale_y_continuous(labels = scales::percent) +
     scale_x_reordered() +
     coord_flip() + labs(x = "", y = "") +
-    theme_light(base_size = 8)
+    theme_light(base_size = 6)
 
 ggsave("paper/figures/fig4_qual_results.png", device = "png", width = unit(5,"in"), height = unit(2.5,"in"))
 
@@ -275,3 +290,5 @@ p1 | p2 + plot_layout(widths = 2.5, heights = 2.5)
 
 ggsave(filename = "paper/figures/fig1.png",
        plot = last_plot(), width = 6, height = 2.5, device = "png", dpi = 400)
+
+
