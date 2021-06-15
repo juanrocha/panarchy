@@ -16,13 +16,13 @@ abstract: |
 bibliography: panarchy.bib
 csl: "/Users/juanrocha/Documents/styles/ecology.csl"
 output:
-  rtf_document:
-    toc: no
   pdf_document:
     dev: pdf
     keep_tex: yes
     toc: no
     latex_engine: xelatex
+  rtf_document:
+    toc: no
 citecolor: blue
 documentclass: article
 font: Arial
