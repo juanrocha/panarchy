@@ -6,17 +6,19 @@
 # libraries for modeling
 library(tidytext)
 library(tidyverse)
-
-
+library(tictoc)
+library(bib2df) # update to the github version, otherwise errors importing
 
 files <- list.files("data/") %>% str_subset(pattern = ".bib")
 files <- paste0("data/", files) 
 
-dat <- map(.x = files, .f = function(x){
+tic()
+dat <- map(.x = files[1:3], .f = function(x){ #exclude Gunderson file
     x %>% 
         bib2df::bib2df(separate_names = TRUE) %>%
         janitor::clean_names()
 })
+toc() #6s
 
 dat <- bind_rows(dat)
 
@@ -37,10 +39,11 @@ dat %>% pull(abstract) %>% unique() %>% length() # 2192
 
 ## extra words
 too_words <- tibble(
-    word = c("paper", "study", "aim", "aims", "objective", "purpose")
+    word = c("paper", "study", "aim", "aims", "objective", "purpose", "elsevier", "taylor", "francis")
 )
 
 ## creates the document term matrix
+tic()
 dtm <- dat %>% 
     select(abstract, title, year) %>%
     filter(!is.na(abstract)) %>%
@@ -50,10 +53,11 @@ dtm <- dat %>%
     anti_join(stop_words) %>% 
     anti_join(too_words) %>%
     filter(!str_detect(word, "[:digit:]")) %>%
+    mutate(word = textstem::lemmatize_words(word)) %>% 
     group_by(title) %>%
     count(word, sort = TRUE) %>%
     cast_dtm(document = title, term = word, value = n)
-
+toc() #3.5s
 dtm
 
 save(dtm, file = "data/dtm.Rdata")

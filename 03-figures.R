@@ -167,7 +167,7 @@ g_prop <- df_documents %>%
     geom_line(aes(color = as.factor(topic)), show.legend = FALSE, size = 0.25) +
     geom_hline(yintercept = 0.04, color = "gray50", size = 0.5, linetype = 2 ) +
     labs(y = "Proportion of papers", x = "Year", tag = "B") +
-    facet_wrap(.~topic, ncol = 5) +
+    #facet_wrap(.~topic, ncol = 5) +
     theme_light(base_size = 6) 
 
 ## alternative with stacked lines
@@ -215,7 +215,7 @@ sm2 <- df_documents %>%
     #theme_classic(base_size = 6) 
     theme_light(base_size = 6) +
     theme(axis.text.x = element_text(size = 4))
-
+sm2
 ggsave(
     plot = sm2,
     filename = "sm2.png", path = "paper/figures",
@@ -266,6 +266,8 @@ qual_summary %>%
     theme_light(base_size = 6)
 
 ggsave("paper/figures/fig4_qual_results.png", device = "png", width = unit(5,"in"), height = unit(2.5,"in"))
+
+save(qual, file = "data/qual_coding.RData")
 
 #### Fig 1 ####
 
