@@ -5,7 +5,7 @@ library (topicmodels)
 library(lda)
 library(patchwork)
 library(png)
-
+library(gg3D)
 
 load("data/models_gibbs.RData")
 
@@ -261,7 +261,7 @@ qual_summary %>%
     geom_col() + 
     facet_wrap(~var_type, scales = "free_y") +
     scale_y_continuous(labels = scales::percent) +
-    scale_x_reordered() +
+    tidytext::scale_x_reordered() +
     coord_flip() + labs(x = "", y = "") +
     theme_light(base_size = 6)
 
@@ -273,24 +273,81 @@ save(qual, file = "data/qual_coding.RData")
 
 p1 <- ggplot(data = data_frame(x = 0, y= 0), aes(x,y)) + geom_blank() +
     labs(tag = "A") +
-    theme_void() +
+    theme_void(base_size = 6) +
     annotation_custom(
         grob = grid::rasterGrob( image = readPNG(
-            "paper/figures/adaptive_cycle.png"), interpolate = TRUE),
+            "paper/extra_figs/adaptive_cycle.png"), interpolate = TRUE),
         xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf
     )
 p2 <- ggplot(data = data_frame(x = 0, y= 0), aes(x,y)) + geom_blank() +
     labs(tag = "B") +
-    theme_void() +
+    theme_void(base_size = 6) +
     annotation_custom(
         grob = grid::rasterGrob( image = readPNG(
-            "paper/figures/panarchy.png"), interpolate = TRUE),
+            "paper/extra_figs/panarchy.png"), interpolate = TRUE),
         xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf
     )
 
-p1 | p2 + plot_layout(widths = 2.5, heights = 2.5)
 
-ggsave(filename = "paper/figures/fig1.png",
-       plot = last_plot(), width = 6, height = 2.5, device = "png", dpi = 400)
+p3 <- ggplot(data = data_frame(x = 0, y= 0), aes(x,y)) + geom_blank() +
+    labs(tag = "C") +
+    theme_void(base_size = 6) +
+    annotation_custom(
+        grob = grid::rasterGrob( image = readPNG(
+            "paper/extra_figs/Figure_2-2.png"), interpolate = TRUE),
+        xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf
+    )
 
+p1 + p2 + p3 + plot_layout(widths = 2, heights = 2)
+
+ggsave(filename = "paper/figures/fig1_panarchy.png",
+       plot = last_plot(), width = 6, height = 2, device = "png", dpi = 400)
+
+
+### 3D adaptive cycle for reviewer...
+library(deSolve)
+# parameters
+a <--8/3;b<--10;c<-28  
+# Initial conditions
+yini <- c(X = 1, Y = 1, Z = 1)  
+
+## Lorenz function:
+Lorenz <- function (t, y, parms) { 
+    with(as.list(y), {
+        dX <- a * X + Y * Z
+        dY <- b * (Y - Z)
+        dZ <- -X * Y + c * Y - Z 
+        list(c(dX, dY, dZ)) })
+}
+
+# set up
+times <- seq(from = 0, to = 100, by = 0.01)
+out <- ode(y = yini, times = times, func = Lorenz,
+           parms = NULL)
+
+
+scatterplot3d::scatterplot3d (
+    out[,"X"], out[,"Y"], out[,"Z"], 
+    type = "l", xlab="", ylab = "", zlab = "")
+
+out |> 
+    as_tibble() |>
+    pivot_longer(cols = c(X,Y,Z), names_to = "dim", values_to = "value") |> 
+    ggplot(aes(time, value)) +
+    geom_line(aes(color = time)) +
+    facet_wrap(~dim)
+
+theta <- 135 # azimuthal
+phi <-  20  # colatitude
+
+out |> 
+    as_tibble() |>
+    filter(time > 29.5, time < 35) |> 
+    ggplot(aes(x = X, y = Y, z = Z,)) + 
+    #geom_line(aes(color = time)) +
+    theme_void() +
+    axes_3D(theta = theta, phi = phi)+
+    stat_3D(geom="path",theta = theta, phi = phi) +
+    labs_3D(theta = theta, phi = phi,
+            labs= c( "Resilience","Connectedness", "Potential"))
 

@@ -1,7 +1,7 @@
 ---
 title: "Panarchy: ripples of a boundary concept"
 author: |
-    | \small Juan Rocha^1,2,3^, Linda Luvuno^4^, Jesse Rieb^5^, Erin Crockett^6^,  Katja Malmborg^1^, Michael Schoon^7^, Garry Peterson^1^
+    | \small Juan C. Rocha^1,2,3^, Linda Luvuno^4^, Jesse Rieb^5^, Erin Crockett^6^,  Katja Malmborg^1^, Michael Schoon^7^, Garry D. Peterson^1^
     | \small
     | \footnotesize ^1^Stockholm Resilience Centre, Stockholm University, Kräftriket 2B, 10691 Stockholm
     | \footnotesize ^2^Future Earth, The Swedish Royal Academy of Sciences, Lilla Frescativägen 4A, 104 05 Stockholm
@@ -12,17 +12,17 @@ author: |
     | \footnotesize Sainte-11 Anne-de-Bellevue, QC, H9X 3V9, Canada
     | \footnotesize ^7^School of Sustainability, Arizona State University, Tempe, Arizona, USA
 abstract: |
-  How do social-ecological systems change over time? In 2002 Holling and colleagues proposed the concept of Panarchy, which presented social-ecological systems as an interacting set of adaptive cycles, each of which is produced by the dynamic tensions between novelty and efficiency at multiple scales. Initially introduced as a conceptual framework and set of metaphors, panarchy has gained the attention of scholars across many disciplines, and its ideas continue to inspire further conceptual developments. Almost twenty years after this concept was introduced we review how it has been used, tested, extended and revised.  We do this by combining qualitative methods and machine learning. Document analysis was used to code panarchy features that are commonly used in the scientific literature (N = 42), a qualitative analysis that was complemented with topic modeling of 2177 documents. We find that the adaptive cycle is the feature of panarchy that has attracted the most attention. Challenges remain in empirically grounding the metaphor, but recent theoretical and empirical work offer some avenues for future research.
+  How do social-ecological systems change over time? In 2002 Holling and colleagues proposed the concept of panarchy, which presented social-ecological systems as an interacting set of adaptive cycles, each of which is produced by the dynamic tensions between novelty and efficiency at multiple scales. Initially introduced as a conceptual framework and set of metaphors, panarchy has gained the attention of scholars across many disciplines, and its ideas continue to inspire further conceptual developments. Almost twenty years after this concept was introduced we review how it has been used, tested, extended and revised.  We do this by combining qualitative methods and machine learning. Document analysis was used to code panarchy features that are commonly used in the scientific literature (N = 42), a qualitative analysis that was complemented with topic modeling of 2177 documents. We find that the adaptive cycle is the feature of panarchy that has attracted the most attention. Challenges remain in empirically grounding the metaphor, but recent theoretical and empirical work offer some avenues for future research.
 bibliography: [panarchy.bib, packages.bib]
 csl: "/Users/juanrocha/Documents/styles/ecology.csl"
 output:
+  rtf_document:
+    toc: no
   pdf_document:
     dev: pdf
     keep_tex: yes
     toc: no
     latex_engine: xelatex
-  rtf_document:
-    toc: no
 citecolor: blue
 documentclass: article
 font: Arial
@@ -55,24 +55,22 @@ Almost two decades ago, the edited book "Panarchy: Understanding Transformations
 in Human and Natural Systems" [@Gunderson:2002vk], presented a synthetic
 perspective of how a group of social-ecological researchers associated with the
 Resilience Alliance understood change in social-ecological systems. The concept
-of Panarchy was a key focus of this influential book. In the late 1990s and
+of panarchy was a key focus of this influential book. In the late 1990s and
 early 2000s, the Resilience Alliance was a productive, innovative, and highly
 collaborative group of interdisciplinary scientists that focused on addressing
 social-ecological problems. They did this by combining insights from the social
 and natural sciences, arts, and humanities, as well as by bridging theory and
-practice [@Parker:2012eo].
-
-The Panarchy concept builds on Holling's adaptive cycle [@biosphere:hJ4c_Ua8]
-by extending the idea across spatial and temporal scales. It remains a boundary
+practice [@Parker:2012eo].Panarchy remains a boundary
 object that has inspired research topics, enabled collaborations and nurtured
-new scientific frameworks. The ideas put forward have been applied in field
+new scientific frameworks [@Parker:2012eo]. The ideas put forward have been applied in field
 studies, archaeology, mathematical models, participatory work, and scenario
-development. Panarchy has inspired resilience assessments and guided decision
+development [@gunderson2022applied]. Panarchy has inspired resilience assessments and guided decision
 making. In this article we pay tribute to the book by studying how the concepts
 and metaphors proposed have been further developed in the academic literature.
 We also document criticism of the concepts and identify key research frontiers.
 
-Panarchy proposes that it is useful to conceptualize systems in terms of
+The panarchy concept builds on Holling's adaptive cycle [@biosphere:hJ4c_Ua8]
+by extending the idea across spatial and temporal scales. Panarchy proposes that it is useful to conceptualize systems in terms of
 interacting adaptive cycles. The adaptive cycle was an idea first proposed by
 Holling based upon his experience working and studying managed ecosystems
 [@biosphere:hJ4c_Ua8]. It was meant to be a conceptual tool that focused
@@ -95,9 +93,9 @@ tensions between demands for organization and efficiency, versus demands for
 novelty and diversity, drive adaptive cycle dynamics in many different types of
 complex systems [@Holling:2002wu].
 
-Panarchy is not a theory of what it is, but a metaphor of what might be
-[@Gunderson:2002vk]. It is not a predictive tool, but aims to understand
-adaptive change. The adaptive cycle is hypothesized to exist within a
+"_Panarchy is not a theory of what it is, but a metaphor of what might be_"
+[@Gunderson:2002vk 32]. It is not a predictive tool, but aims to understand
+adaptive change. The adaptive cycle is proposed to exist within a
 three-dimensional space defined by three properties: potential, connectedness,
 and resilience [@Gunderson:2002vk]. Potential refers to the capital available
 to the system, for example nutrients and carbon captured by a forest, or human
@@ -111,8 +109,8 @@ feedbacks [@Anonymous:2016fv].
 ```{=tex}
 \begin{figure*}[ht]
 \centering
-\includegraphics[width = 6in, height = 2.5in]{fig1_panarchy}
-\caption{\textbf{Panarchy} is an heuristic of nested adaptive cycles that serves to represent a variety of systems and environmental problems. Adaptive cycles (A) at different scales of the hierarchy (B) can be connected through remember and revolt cross-scale interactions.}
+\includegraphics[width = 6in, height = 2in]{fig1_panarchy}
+\caption{\textbf{Panarchy} is an heuristic of nested adaptive cycles that serves to represent a variety of systems and environmental problems. Adaptive cycles (A) at different scales of the hierarchy (B) can be connected through remember and revolt cross-scale interactions. (C) relates the adaptive cycle to the potential, connectedness and resilience axis, reproduced from Panarchy edited by Lance Gunderson and C.S. Holling, copyright \textcopyright 2002 Island Press. Reproduced with permission of Island Press, Washington, DC.}
 \label{fig:fig1}
 \end{figure*}
 ```
@@ -121,13 +119,11 @@ and time, where each level of the hierarchy is a subsystem that can be in a
 different phase of the adaptive cycle. These phases are inspired by mathematical
 models used in economics and ecology, but broadly describe patterns of growth,
 collapse, and recovery that are common to populations, ecological communities,
-markets, or political organizations. While each subsystem in the hierarchy can
-be at a different phase of the adaptive cycle, these subsystems can influence
-each other through cross-scale interactions called *"revolt"* and *"remember"*
+markets, or political organizations. While each subsystem in the hierarchy can be at a different phase of the adaptive cycle, these subsystems can particularly influence each other through cross-scale interactions called *“revolt”*, where release in a smaller, faster sub-system can trigger release in a larger, slower sub-system,  and *“remember”*, in which the structure of a larger-slower sub-system shapes the dynamics of reorganization of a smaller, faster sub-system
 [@Gunderson:2002vk].
 
-The three-dimensional space has corners with attractors that can cause the
-adaptive cycle to stagnate: poverty and rigidity traps [@Gunderson:2002vk].
+The three-dimensional space defined by potential, connectedness and resilience, has corners with attractors that can derail the
+adaptive cycle: poverty and rigidity traps [@Gunderson:2002vk].
 Poverty traps are described in panarchy as maladaptive states where potential,
 connectedness and resilience are low. Poverty traps are a series of feedback
 mechanisms that reinforce impoverished states [@Bowles:2006hx; @Maru:2012dm;
@@ -139,35 +135,26 @@ where ecological resilience has been extensively replaced by artificial
 processes to maintain the system such as levees, flood barriers, or chemical
 control of pests [@Holling:1996wx].
 
-Panarchy offers a rich conceptual framework for understanding environmental
+Panarchy offers a rich conceptual framework for interpreting environmental
 problems. While inspired by several mathematical constructs (e.g. cycles, traps,
 scaling laws), it is general enough to invite scholars from multiple
 disciplinary backgrounds, ontologies and epistemologies, to collaborate around
 research questions and applied problems. As such, it is useful as a boundary
-object and can be used empirically or metaphorically. The book itself presents a
+object and can be used empirically or metaphorically. The book presents a
 series of case studies where geographers, economists, political scientists, and
 ecologists have demonstrated the utility of the framework to their area of
 research.
 
-However, the extent to which these concepts have gained empirical support beyond
-the metaphor, or how they have evolved over time, remain open questions. For
-example, the adaptive cycle is a useful metaphor to look back at history and
-organize events and periods around phases, but it remains challenging to
-identify the phase of a system in real time, or to use panarchy to project
-future trajectories. Scientific theories are bodies of knowledge that answer the
+Scientific theories are bodies of knowledge that answer the
 question why? The answer implies causal reasoning. Regardless of discipline, a
 theory should therefore provide a series of testable expectations that help
 distinguishing the situations when it is a good explanation of reality, versus
 situations when it falls short. The practice of science implies avoiding
 confirmation bias and testing when explanations are valid representations of
-reality. For panarchy to become a useful theory in sustainability science, it
-needs to stand the rigor of testing, and being able to explain phenomena in
-social-ecological systems across different contexts. We identify progress and
-knowledge gaps in the scientific practice inspired by panarchy.
-
-Here we review the academic literature of the last two decades to trace how the
-ideas proposed in Panarchy have evolved, to what type of problems they have been
-applied and found useful, and finally, what key research frontiers remain.
+reality. In this paper we explore how the conceptual framework of panarchy has been applied, developed and tested over the past twenty years. For panarchy to become a useful theory in sustainability science, it 
+needs to be able to explain phenomena in
+social-ecological systems across different contexts, in a way tah tis testable, and withstands the rigour of those tests. Here we review the academic literature of the last two decades to trace how the
+ideas proposed in panarchy have evolved. We conclude by suggesting research frontiers for future work.
 
 # Methods
 
@@ -177,7 +164,7 @@ analysis [@Bryman:2008va]. We first describe the data curation and how it was
 used in the topic models. Then we introduce the qualitative approach.
 
 *Data*: We used the Web of Science, Scopus, and GoogleScholar to survey academic
-literature that has used or referenced works that trace back to Panarchy
+literature that has used or referenced works that trace back to panarchy
 [@Gunderson:2002vk]. We extracted complete records from the Scopus database
 that matched the search for *"panarchy OR adaptive cycle"* (N = 595), or the
 search *"(panarchy OR adaptive cycle) AND resilience"* (N = 278). The data was
@@ -237,7 +224,7 @@ of the corpus used for topic modelling. We read papers avoiding biasing our
 selection to high cited papers, specific journals, older papers or particular
 disciplines or methods.
 
-Based on the reading of Panarchy, we first developed a series of categorical
+Based on the reading of panarchy, we first developed a series of categorical
 variables that captured the main components of the scientific framework. The
 variables were presented and received feedback at the science meeting of the
 Resilience Alliance in 2019. We used the variables to annotate qualitative
@@ -245,12 +232,12 @@ aspects such as use of the adaptive cycle, identification of its phases, whether
 the paper is conceptual, modeling or an empirical study. When empirical, we
 recorded the temporal and spatial scales of the case study. We also
 distinguished empirical cases from empirical constructs. An empirical case is
-when a study is trying to test an idea or proposition put forward by Panarchy
+when a study is trying to test an idea or proposition put forward by panarchy
 (e.g. a cross-scale interaction, or that the back loop is faster than the forth
-loop). An empirical construct is when Panarchy is used as inspiration to
+loop). An empirical construct is when panarchy is used as inspiration to
 interpret a case study, typically with a historical component to it (e.g.
 identify the phases of adaptive cycle); but it does not find support for or
-against a Panarchy preposition. That is, there was no mechanism in place to
+against a panarchy preposition. That is, there was no mechanism in place to
 avoid confirmation bias.
 
 We also identified what aspects of panarchy were most used in the papers. For
@@ -258,17 +245,16 @@ example whether there is emphasis on cross-scale interactions, or poverty and
 rigidity traps. We used text annotations to capture potential criticisms as well
 as the methods used. We did a preliminary scoping and coding of papers, and
 through an iterative process we kept track of potential fields under review by
-our corpus, or simply absent of it. We coded papers until we reached conceptual
-saturation, that is, additional papers were not proving additional categories of
-the already coded. The code book is available at
+our corpus, or simply absent from it. We coded papers until we reached conceptual
+saturation, that is, additional papers were not proving additional categories. The code book is available at
 [doi.org/10.6084/m9.figshare.13490919](http://doi.org/10.6084/m9.figshare.13490919).
 
 # Results
 
-Panarchy, the book published in 2002, has been cited over 7200 times according
-to Google Scholar. The scientific paper that introduced the book to the
+Panarchy, the book published in 2002, has been cited over 8600 times according
+to Google Scholar (by March 2022). The scientific paper that introduced the book to the
 scientific community [@Holling:2001cu] has received, at the time of writing,
-1715 citations in the Web of Science, and 1923 in Scopus. Roughly half of the
+1853 citations in the Web of Science, and 2197 in Scopus. Roughly half of the
 citations have come from environmental (28%) and social sciences (22%). Computer
 science (2.1%) and arts and humanities (2.6%) have been the least represented.
 
@@ -280,7 +266,8 @@ science (2.1%) and arts and humanities (2.6%) have been the least represented.
 \label{fig:algorithm}
 \end{figure*}
 ```
-Comparing algorithm performance revealed that Gibbs sampling was the best fit
+
+Topic modelling was done using Gibbs sampling. In our comparison of alternative Latent Dirichlet Allocation algorithms Gibbs sampling provided the best fit
 for the data (Fig \ref{fig:algorithm}). As a rule of thumb, an ideal method
 should maximize entropy and the log-likelihood estimation while minimizing
 perplexity [@Grun:2011tb]. Gibbs sampling maximised both entropy and
@@ -316,8 +303,7 @@ corpus (grey line in Fig \ref{fig:topics25}B). The topics presented lack names
 for reproducibility purposes. While here we present e.g. topic 7 as the urban
 topic, if a researcher replicates the analysis that person will find the same
 list of words and probability distributions listed under a topic with a
-different number. That is because the labeling of topics is random and we do not
-want to bias the reader to over interpret the word patterns found.
+different number. That is because the labeling of topics is random and we urge readers not to over interpret the word patterns found.
 
 ```{=tex}
 \begin{figure*}[h]
@@ -340,22 +326,21 @@ clearly distinct from the rest of the collection, and showed a decreasing trend
 over time.
 
 The human-coded document analysis revealed that the most common feature of
-panarchy in the literature was the adaptive cycle (81%, N = `r nrow(qual)`)
+panarchy in the literature was the adaptive cycle (81%, 34 out of N = `r nrow(qual)`)
 followed by cross-scale interactions (Fig \ref{fig:qual}). Poverty and rigidity
 traps were less studied features in our sample (14% and 19% respectively), even
-when accounting for slightly different terminology such as "lock-ins". 52.4% of
+when accounting for slightly different terminology such as "lock-in". About half (52.4% or 22/42) of
 the papers analyzed were conceptual papers, many without defined methods or
-discernible research question. Roughly half (47%) of the papers were conceptual
-or only used panarchy as a metaphor. Over 40% of papers in our sample went a
+a clear research question. Roughly half (20/42) of the papers used panarchy as a metaphor. About 40% of papers in our sample (17/42) went a
 step further and used panarchy as an empirical construct, for example by
-attempting to identify the phases of the adaptive cycle (61%). Out of the 22
+attempting to identify the phases of the adaptive cycle (26/42). Off the 22
 empirical cases, 6 were at the time scale of centuries, 7 on decades, 6 on
 years, and 1 in weeks. Spatially, 4 were at a city scale, 17 regional, and 1
-national. Empirical papers predominantly used qualitative methods (77%, N = 22)
-and were generally retrospective historical reviews.
+national. Empirical papers predominantly used qualitative methods (17)
+and were primarily retrospective historical reviews.
 
-Several of the papers reviewed (81%) attempted to identify the adaptive cycle
-either through qualitative or quantitative methods. Identification of adaptive
+Most of the papers reviewed (81%, 34 of N = 42) identified adaptive cycles
+either through scientific methods, or as analogy or framework to make sense of a narrative. Identification of adaptive
 cycles has found applications in a wide range of disciplines and research
 problems, from delimitation of periods in archaeology and anthropology
 [@Redman:2003bd], systemic interactions between forest-related sectors in Sweden [@moen2010interlocking], financial crises in Europe [@Castell:2020dg], to
@@ -367,8 +352,8 @@ information transfer methods based on entropy have been suggested to approximate
 relevant components of a system and the empirical proxies of the axes within
 which the adaptive cycle unfolds: potential, connectedness, and resilience
 [@Castell:2020dg]. Percolation methods combined with big data have been proven
-useful for testing hypotheses of regime shifts in urban systems (originally
-proposed in Panarchy [@Gunderson:2002vk]), and deriving the temporal and
+useful for testing hypotheses of regime shifts in urban systems, an idea originally
+proposed in panarchy [@Gunderson:2002vk]; and deriving the temporal and
 spatial scales at which the adaptive cycle emerges [@Zeng:2020hu].
 
 ```{=tex}
@@ -381,71 +366,10 @@ spatial scales at which the adaptive cycle emerges [@Zeng:2020hu].
 ```
 # Discussion
 
-Given the strong predominance of conceptual papers, it is not surprising that
-one of the key frontiers of research is to empirically ground such
-conceptualizations in a way that one can test theoretical expectations beyond
-metaphors. Metaphors have played an important role as boundary objects enabling
-interdisciplinary dialogues. We observed this on the wide variety of
-applications that panarchy has inspired, in fields from anthropology to
-engineering. In the empirical realm, the adaptive cycle is the dimension of
-panarchy with which researchers engage the most, but it is dominated by
-qualitative and retrospective studies. That means, we still lack the theory and
-methods to gather observations and identify a system's current adaptive cycle
-phase, or the probability of it transitioning to a new phase.
-
-The high level of conceptualization but lack of empirically grounded testing of
-panarchy theory came across as one of the major limitations, given our sample of
-papers reviewed (N=`r nrow(qual)`). What makes a theory a scientific theory is
-that the plurality of scientific approaches (e.g. positivism, constructivism)
-should have mechanisms in place to avoid confirmation bias, allowing the
-emergence of alternative explanations, and identify the circumstances under
-which a theory may fail [@Hansson:2017tr]. Many of the papers we read
-confirmed but did not challenge the expectations that Panarchy put forward,
-though a few of the most recent works did falsify some of the ideas proposed
---e.g. the back loop is faster than the front one [@Castell:2020dg]. We
-believe more work is needed to better understand the circumstances where
-Panarchy works, and when it falls short. In other words, to refine the
-scientific framework into a scientific theory.
-
-The criticism of over-conceptualization is not unique to the literature that
-engages with Panarchy ideas. Here by over-conceptualization we refer to the
-problem of scientific jargon, where different communities use slightly different
-wordings to refer to the same phenomenon; reducing the chances that lessons from
-a discipline percolates to another. An example from Panarchy is the endorsement
-of ideas such as creative destruction (from economics) or the theory of
-intermediate disturbances (from ecology). The latter has been debunked in the
-ecological literature but might still have been used within Panarchy thinking
-[@Fox:2013br]. A recent review of sustainability science mapped the different
-schools of thought that the discipline has developed over the last decades
-[@Clark:2020jd] and reached a similar conclusion: too many conceptual
-frameworks have been developed, but there have been too few empirical attempts
-to test the frameworks against data and falsify hypotheses. The review also
-emphasizes the problem of measurement and observation [@Clark:2020jd]. In the
-context of panarchy, recent work has developed an information theory based
-approach that enables the identification of adaptive cycles
-[@Castell:2020dg]. The authors identify phases of the adaptive cycle in the
-European financial crises and in grassland ecosystems, but fail to find support
-for the difference in speed between the forward and backward loops originally
-proposed in Panarchy.
-
-The panarchy dimensions that received less attention in our qualitative analysis
-included creative destruction, rigidity and poverty traps. This may be at least
-partly due to the scope of our data: papers that have cited Panarchy or
-Holling's paper [@Gunderson:2002vk; @Holling:2001cu], and a relatively small
-sample size (N=`r nrow(qual)`). Concepts such as creative destruction and
-poverty traps precede Panarchy and therefore have been theorized and empirically
-grounded outside the panarchy stream of thinking. For example, the theory of
-poverty traps dates back to the 1950's in economics, and has received both
-theoretical development [@Bowles:2006hx] as well as empirical grounding
-[@Banerjee:2015ja; @Banerjee:2012tq] that has enabled researchers and
-governments to distinguish what kind of interventions are likely to reduce
-poverty. Here we encourage similar empirical efforts in formalizing theory and
-empirical support for the adaptive cycles, their cross-scale interactions
-(remember and revolt), or how the hierarchical nested nature of complex systems
-enhance or erode resilience in social-ecological systems.
+We examined how the conceptual framework of panarchy has been developed and tested over the past twenty years. We did this using a topic modelling to analyze a large number of papers and a focused review of a selection of panarchy papers.  We find that panarchy has been used an interpretative tool across a wide variety of topics, but has there has been little effort to substantially operationalize or test panarchy. 
 
 Sustainability science is defined by the problems it addresses rather than the
-disciplines it employs [@Anonymous:2016fv]. Our topic modeling results helped
+disciplines it employs [@Anonymous:2016fv]. This goal of this paper was to explore how the ideas proposed in panarchy have evolved, to what type of problems they have been applied and found useful, and finally, what key research frontiers remain. Our topic modeling results helped
 in identifying some of the problems that the community is addressing and how
 they have changed over time. Some of these problems include climate change
 (topic 24), urban development and disaster response (7), conservation and
@@ -459,7 +383,7 @@ landmark papers in certain topics, or identify the network of key collaborators
 and experts.
 
 This paper aimed to study the use of panarchy related concepts and their
-evolution since the publication of the book. Systematic literature reviews are
+evolution since the publication of the book [@Gunderson:2002vk]. Systematic literature reviews are
 often restricted to a limited subset of the literature -- based on what is
 readable on the time frame of a project -- of dozens to maybe hundreds of
 papers. Qualitative analysis offers rich insights into the papers reviewed but
@@ -469,56 +393,86 @@ selection of papers that aligned with our research interests or highly cited rev
 papers. Topic modeling enabled us to complement the analysis and include all
 papers indexed by major scientific databases. It has the advantage of
 reproducibility and reduces sample bias, but offers limited insights into the
-dimensions of panarchy used, methods, or criticisms. Here we show that both
-methods combined are a powerful combination.
+dimensions of panarchy used, methods, or criticisms. By combining methods, as we did in this paper, we believe literature reviews can become more powerful.
 
 Our choice of methods does however have some limitations. We could not directly
-compare the two methods since they do not share a common categorical axis on
-which they can be measured back to back. The topics gave us a general but
-shallow overview, while the document analysis provide deep insights on
-particular work but limited generalizations. We also, for example, ignored rich
+compare the two methods since they do not share a common categorical axis that we could use to translate between methods. Topic modelling contributes understanding of what topics --sets of words-- panarchy has been associated with; while our document analysis contribute in-depth understanding on how people have interpreted and use these concepts. The topics gave us a broad but
+shallow overview, while the document analysis provides deep insights on
+particular work but limited generalizations. Our method also ignored rich
 areas of social science research (e.g. Anthropology) often published in books
 and book chapters, that are not archived by scientific search engines.
-Additionally, a more inductive approach to the qualitative coding could have
+Finally, an iterative inductive approach to the qualitative coding could have
 given us different insights on the literature outside the pre-defined categories
 we initially shared with the Resilience Alliance.
 
-Future studies could benefit from including gray literature such as theses,
+Future studies of panarchy, or other concepts, can benefit from our experience. Panarchy is a collection of concepts, some of them more used and developed than others such as the adaptive cycle. Future reviews would benefit from including gray literature such as theses,
 books, non-governmental organizations reports, government agencies reports, or
-non-English literature. This would let us see the usage of Panarchy concepts in
-more applied settings such as management and decision making. Previous studies
-have also shown that the use of full text instead of abstracts can also offer
+non-English literature. This would let us see the usage of panarchy concepts in
+more applied settings such as management and decision making. The use of full text instead of abstracts can also offer
 additional insights on the automated analyses, for example in attributing
 impacts of ecosystem services from regime shifts in social-ecological systems
-[@Rocha:2015tk]. Replication attempts do however face the challenge of
-accessing full text when many of the papers are behind pay-walls.
+[@Rocha:2015tk].  While databases are improving, full-text analysis are only possible for open-access journals, and text analysis is difficult across multiple languages. Databases are increasing their coverage of books and reports, which suggest our approach may be able to access a broader set of literature in the future.
+
+Our review of panarchy papers (N = `r nrow(qual)`) revealed a high level of conceptualization but lack of theory development or testing.  Conceptual frameworks, such as panarchy, have an important role as boundary objects that enable interdisciplinary dialogues. The usefulness of panarchy in this role is revealed by how it has been used to address a variety of issues in fields ranging from anthropology to engineering. Many of papers reviewed used the adaptive cycle to interpret past events, but did not engage in measurement or observation to test adaptive cycles in the present or potential future trajectories, nor other features of panarchy such as poverty or rigidity traps, or revolt and remember cross-scale interactions. There remains a lack of testable mechanistic theories to explain the dynamics of panarchy, and consequently there is a lack of methods to measure or observe it in real social-ecological systems.
+
+The high level of conceptualization but lack of theory testing came across as one of the major limitations, given our sample of
+papers reviewed (N=`r nrow(qual)`). What makes a theory a scientific theory is
+that the plurality of scientific approaches (e.g. positivism, constructivism)
+should have mechanisms in place to avoid confirmation bias, allowing the
+emergence of alternative explanations, and identify the circumstances under
+which a theory may fail [@Hansson:2017tr]. Many of the papers we read
+confirmed but did not challenge the expectations that panarchy put forward,
+though a few of the most recent works did falsify some of the ideas proposed
+--e.g. the back loop is faster than the front one [@Castell:2020dg]. We
+believe more work is needed to better understand the circumstances where
+panarchy works, and when it falls short. In other words, to refine the
+scientific framework into a scientific theory.
+
+The criticism of over-conceptualization is not unique to the literature that
+engages with panarchy ideas. Here by over-conceptualization we refer to the
+problem of scientific jargon, where different communities use slightly different
+wordings to refer to the same phenomenon; reducing the chances that lessons from
+a discipline percolates to another. An example from panarchy is the endorsement
+of ideas such as creative destruction (from economics) or the theory of
+intermediate disturbances (from ecology). The latter has been debunked in the
+ecological literature
+[@Fox:2013br]. A recent review of sustainability science mapped the different
+schools of thought that the discipline has developed over the last decades
+[@Clark:2020jd] and reached a similar conclusion: too many conceptual
+frameworks have been developed, but there have been too few empirical attempts
+to test the frameworks against data and falsify hypotheses. The review also
+emphasizes the problem of measurement and observation [@Clark:2020jd]. In the
+context of panarchy, recent work has developed an information theory based
+approach that enables the identification of adaptive cycles
+[@Castell:2020dg]. The authors identify phases of the adaptive cycle in the
+European financial crises and in grassland ecosystems, but fail to find support
+for the difference in speed between the forward and backward loops originally
+proposed in panarchy. Lack of support for the same ideas was also found in studies of urban traffic [@Zeng:2020hu]. 
+
+The panarchy dimensions that received less attention in our qualitative analysis
+included creative destruction, rigidity and poverty traps. This may be at least
+partly due to the scope of our data: papers that have cited panarchy or
+Holling's paper [@Gunderson:2002vk; @Holling:2001cu], and a relatively small
+sample size (N=`r nrow(qual)`). Concepts such as creative destruction and
+poverty traps precede panarchy and therefore have been theorized and empirically
+grounded outside the panarchy stream of thinking. For example, the theory of
+poverty traps dates back to the 1950's in economics, and has received both
+theoretical development [@Bowles:2006hx] as well as empirical grounding
+[@Banerjee:2015ja; @Banerjee:2012tq] that has enabled researchers and
+governments to distinguish what kind of interventions are likely to reduce
+poverty.  As researchers have done with poverty traps, we believe it would be fruitful to propose and evaluate potential mechanisms that could produce adaptive cycles, their cross-scale interactions
+(remember and revolt), or how the hierarchical nested nature of complex systems
+enhance or erode resilience in social-ecological systems.
 
 # Conclusion
 
-We reviewed the academic literature of the last two decades to trace how
-Panarchy related concepts have evolved, in what type of problems they have been
-applied and found useful, and what remains as the key frontiers of research.
-Despite a growing body of literature, no topic seems to dominate the academic
-production of scholars using these concepts. The feature most used is the
-adaptive cycle. It have been found most useful in studies with a historical
-perspective, both in short time studies in natural resource management, urban
-development, and conservation; as well as archeological and anthropological
-studies that span centuries to millennia. Hierarchies in scale or maladaptive
-traps have received comparatively less attention. The frontiers of research
-point to the problems of measurement and prediction. For example, it is
-difficult to observe and approximate resilience, connectedness and potential in
-the present. How to determine the likelihood that a social-ecological system
-will transition to a different phase of the adaptive cycle, or experience a
-"memory" or "revolt" type of cross-scale interaction are still open questions.
-While our survey of the literature identified a few promising pathways towards
-empirically grounding panarchy concepts, we believe the problem of measurement
-and prediction remain fertile ground for future research efforts.
+In this paper we explore how the conceptual framework of panarchy has been used, developed and tested over the past twenty years. Despite a growing body of literature, no topic appears to dominate papers using panarchy concepts. The adaptive cycle is the most widely used concept, and it has been most used to interpret histories that range from the dynamics of natural resource management, urban development, to archeological and anthropological studies that span millennia. Cross-scale dynamics and structure and traps have received less attention.  Operationalzing panarchy theory remains a challenge.  How to measure and forecast system behaviour in ways that is useful for panarchy concepts remains an open question.  Addressing these issues would be very useful by developing tools to answer critical questions about the dynamics of resilience across linked social-ecological systems. For example, how do current changes in the global food system alter its resilience, connectedness and potential.  How do identify whether a social-ecological system is entering a different phase of the adaptive cycle?  What type of ‘remember’ or ‘revolt’ dynamics are shaping the current food systems of Stockholm or Bogota?  While our survey of the literature identified a few promising pathways, developing ways to operationalize theories that explain the dynamics of resilience is vitally needed to confront the challenges of creating a sustainable, just, world. 
 
 # Acknowledgements
 
 JCR acknowledges financial support from Formas research grant (942-2015-731),
 the Stockholm Resilience Centre, and Stockholm University. We acknowledge the
-feedback of the Resilience Alliance and encouragement in pursuing this project.
+feedback of the Resilience Alliance and encouragement in pursuing this project. GDP acknowledges the support of the Rasmussen foundation.
 
 # Data availability
 
